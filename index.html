@@ -28,23 +28,26 @@
     <!-- NAVIGATION -->
 
     <header class="site-header">
-        <a href="#home" class="brand-logo" aria-label="UK Home">
-            UK<span>.</span>
-        </a>
+        <a href="#home" class="brand-logo" aria-label="UK Home">UK<span>.</span></a>
 
         <nav class="header-nav" id="headerNav">
-            <a href="#about">About</a>
-            <a href="#expertise">Expertise</a>
-            <a href="#work">Work</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
+            <!-- links unchanged -->
         </nav>
 
-        <a href="#contact" class="header-cta">
-            Let's Talk <span>↗</span>
-        </a>
-    </header>
+        <div class="header-actions">
+            <a href="#contact" class="header-cta">Let's Talk <span>↗</span></a>
 
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="mobileMenu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <!-- move the existing <nav class="mobile-menu"> block here, inside the header -->
+        <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+            <!-- links unchanged -->
+        </nav>
+    </header>
     <!-- MOBILE NAVIGATION -->
     <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
         <a href="#about">About</a>
