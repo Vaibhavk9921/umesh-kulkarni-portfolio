@@ -372,7 +372,8 @@ img {
 }
 
 .results-strip {
-    width: 106%;
+    width: 100%;
+    max-width: 100%;
     min-height: 162px;
     padding: 25px 5vw;
     background: #292929;
