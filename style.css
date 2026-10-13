@@ -1541,3 +1541,122 @@ footer {
         white-space: nowrap;
     }
 }
+
+/* =========================================
+   MOBILE SKILL BAND — single scrolling line
+   Paste at the VERY END of style.css
+   (replace the earlier mobile-skill-band block).
+   Desktop and tablet are unchanged.
+========================================= */
+
+/* Desktop/tablet: wrappers vanish, tags float around the photo as before */
+.skill-tags,
+.skill-track {
+    display: contents;
+}
+
+/* Duplicate tags exist only for the seamless mobile loop */
+.skill-clone {
+    display: none;
+}
+
+@keyframes skill-scroll {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* Hero stage: badge → photo → one-line band */
+    .hero-visual {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        margin: 24px auto 0;
+        overflow: hidden;
+    }
+
+    .experience-badge {
+        position: static;
+        order: 1;
+        width: auto;
+        max-width: none;
+        margin: 0 auto 14px;
+    }
+
+    .profile-photo {
+        position: relative;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        transform: none;
+        order: 2;
+        width: min(92vw, 340px);
+        height: auto;
+    }
+
+    /* Circle rises behind the neck/shoulders and melts into the band */
+    .green-circle {
+        top: auto;
+        bottom: 0;
+        width: 120vw;
+        max-width: 460px;
+        height: 195px;
+    }
+
+    /* The band: one line, full width */
+    .skill-tags {
+        display: block;
+        order: 3;
+        position: relative;
+        z-index: 4;
+        width: 100%;
+        padding: 14px 0;
+        overflow: hidden;
+        background: var(--green-soft);
+    }
+
+    .skill-track {
+        display: flex;
+        width: max-content;
+        animation: skill-scroll 22s linear infinite;
+    }
+
+    .skill-tags:hover .skill-track,
+    .skill-tags:active .skill-track {
+        animation-play-state: paused;
+    }
+
+    .skill-tag {
+        position: static;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none;
+        margin-right: 10px;
+        padding: 8px 16px;
+        font-size: 13px;
+        line-height: 1.25;
+        white-space: nowrap;
+    }
+
+    .skill-clone {
+        display: block;
+    }
+}
+
+/* Reduced motion: no animation, band becomes a swipeable single row */
+@media (prefers-reduced-motion: reduce) {
+    .skill-track {
+        animation: none !important;
+    }
+
+    .skill-tags {
+        overflow-x: auto;
+    }
+
+    .skill-clone {
+        display: none !important;
+    }
+}
